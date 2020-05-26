@@ -1,2 +1,10 @@
 # Ignore config file
 config.ini
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
