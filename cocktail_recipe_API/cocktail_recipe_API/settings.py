@@ -12,12 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import configparser
-
 # Retrieve database information, TheCocktailDB API key, Django secret key
 config = configparser.ConfigParser()
-config.read('config.ini')
-for key in config['dev_database']:
-    print(config['dev_database'][key])
+path = '/'.join((os.path.abspath(__file__).replace('\\', '/')).split('/')[:-1])
+config.read(os.path.join(path, 'config.ini'))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['django_secret']['api_key']
+SECRET_KEY = config['django_secret']['key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,7 +82,7 @@ WSGI_APPLICATION = 'cocktail_recipe_API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': config['dev_database']['engine'],
-        'NAME': config['dev_database']['name'],
+        'NAME': config['dev_database']['schema'],
         'USER': config['dev_database']['user'],
         'PASSWORD': config['dev_database']['password'],
         'HOST': config['dev_database']['host'],
