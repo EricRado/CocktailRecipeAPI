@@ -1,3 +1,32 @@
 from django.db import models
 
-# Create your models here.
+class Drink(models.Model):
+    id = models.CharField(max_length=30, primary_key=True)
+    name = models.CharField(max_length=50, unique=True)
+    category = models.CharField(max_length=30)
+    IBA = models.CharField(max_length=120)
+    alcoholic = models.CharField(max_length=30)
+    glass = models.CharField(max_length=50)
+    instructions = models.TextField()
+    thumbURL = models.URLField()
+    ingredient1 = models.CharField(max_length=50)
+    ingredient2 = models.CharField(max_length=50) 
+    ingredient3 = models.CharField(max_length=50)
+    ingredient4 = models.CharField(max_length=50)
+    ingredient5 = models.CharField(max_length=50)
+    ingredient6 = models.CharField(max_length=50)
+    ingredient7 = models.CharField(max_length=50)
+    ingredient8 = models.CharField(max_length=50)
+    measure1 = models.CharField(max_length=15)
+    measure2 = models.CharField(max_length=15)
+    measure3 = models.CharField(max_length=15)
+    measure4 = models.CharField(max_length=15)
+    measure5 = models.CharField(max_length=15)
+    measure6 = models.CharField(max_length=15)
+    measure7 = models.CharField(max_length=15)
+    measure8 = models.CharField(max_length=15)
+
+class DrinkSlim(models.Model):
+    id = models.CharField(max_length=30, primary_key=True)
+    name = models.CharField(max_length=30, unique=True)
+    thumbURL = models.URLField()
