@@ -1,6 +1,9 @@
 # Ignore config file
 config.ini
 
+# Ignore env
+.env
+
 # Django #
 *.log
 *.pot
