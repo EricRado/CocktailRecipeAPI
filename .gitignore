@@ -3,6 +3,7 @@ config.ini
 
 # Ignore env
 .env
+/env
 
 # Django #
 *.log
@@ -11,3 +12,6 @@ config.ini
 __pycache__
 db.sqlite3
 media
+
+# Visual Studio
+.vscode
