@@ -1,7 +1,8 @@
 from django.db import models
+import uuid
 
 class Drink(models.Model):
-    id = models.CharField(max_length=30, primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=50, unique=True)
     category = models.CharField(max_length=30)
     IBA = models.CharField(max_length=120)
@@ -26,7 +27,17 @@ class Drink(models.Model):
     measure7 = models.CharField(max_length=15)
     measure8 = models.CharField(max_length=15)
 
+    class Meta:
+        db_table = "drink"
+        verbose_name = "Drink"
+        verbose_name_plural = "Drinks"
+
 class DrinkSlim(models.Model):
-    id = models.CharField(max_length=30, primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=30, unique=True)
     thumbURL = models.URLField()
+
+    class Meta:
+        db_table = "drink_slim"
+        verbose_name = "DrinkSlim"
+        verbose_name_plural = "DrinkSlims"
