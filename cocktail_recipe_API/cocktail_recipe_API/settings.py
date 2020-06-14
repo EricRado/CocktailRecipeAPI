@@ -17,6 +17,12 @@ config = configparser.ConfigParser()
 path = '/'.join((os.path.abspath(__file__).replace('\\', '/')).split('/')[:-1])
 config.read(os.path.join(path, 'config.ini'))
 
+# TheCocktailDB API Key
+API_KEY = config['cocktail_db']['api_key']
+
+# TheCocktailDB url
+BASE_URL = "https://www.thecocktaildb.com/api/json/v2/" + API_KEY + "/"
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
